@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="App1.View.Page2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:App1.ViewModel"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.DataContext>
+            <viewModel:Page1VM/>
+        </Grid.DataContext>
+
+
+        <TextBlock Text="{Binding Name}" Foreground="Red" Height="99" Margin="652,191,-4,710"></TextBlock>
+
+<StackPanel>
+        <GridView HorizontalAlignment="Left" 
+                  VerticalAlignment="Top" Height="491" Width="647"
+                  ItemsSource="{Binding Persons, Mode=TwoWay}"
+                  Background="Aqua">
+            <GridView.ItemTemplate>
+                <DataTemplate  >
+                    <StackPanel >
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+</StackPanel>
+        <Button Content="Back" Command="{Binding BackCommand}" Height="144" Margin="0,484,0,372" Width="381"/>
+
+        <!--<Grid.DataContext>
+            <viewModel:Page1VM/>
+        </Grid.DataContext>-->
+        <!--<TextBlock Text="{Binding Name}" Margin="176,123,188,746" TextWrapping="Wrap" FontSize="40"/>-->
+        <!--<Button Content="Back" Command="{Binding BackCommand}" Background="Red" Margin="304,598,0,286" Width="353" Height="116" />-->
+        <!--<Button Background="Aqua" Height="344" Margin="662,540,0,116" Width="650" ></Button>-->
+
+    </Grid>
+</Page>
